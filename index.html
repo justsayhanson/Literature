@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanson's Literature Texts Compilation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      height: 100%;
+      font-family: "Poppins", sans-serif;
+      color: #000;
+    }
+
+    /* Fixed gradient background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(-45deg, #006994, #00b894, #00cec9, #0984e3);
+      background-size: 400% 400%;
+      animation: gradientShift 18s ease infinite;
+      z-index: -1;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 100%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 0%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Pages */
+    .page {
+      display: none;
+      width: 100%;
+      padding: 20px;
+    }
+    .active { display: block; }
+
+    /* Card */
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      color: #000;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      font-size: 1.05em;
+      text-align: justify;
+    }
+
+    /* Start button */
+    .start-btn {
+      display: block;
+      margin: 2rem auto 0 auto;
+      padding: 16px 40px;
+      font-size: 1.4em;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .start-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* TOC sections */
+    .toc-section {
+      margin: 2rem 0;
+    }
+    .toc-section h2 {
+      margin-bottom: 1rem;
+    }
+    .toc-item {
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0;
+      font-size: 1.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #000;
+    }
+    .toc-item:hover {
+      background: #fff;
+      transform: translateX(6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    /* Navigation buttons */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+    .btn {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #00b894, #0984e3);
+      color: #fff;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    /* Home button */
+    .home-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.6em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #0984e3;
+      transition: transform 0.2s ease;
+    }
+    .home-btn:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Intro Page -->
+  <div id="intro" class="page active">
+    <div class="card" style="text-align:center;">
+      <h1>Welcome to Hanson's Literature Texts Compilation</h1>
+      <p style="text-align:center;">
+        So, this is a Compilation of the poems and the stories prescribed by our Lecturer.
+      </p>
+      <button class="start-btn" onclick="goToPage('toc')">Start Now</button>
+    </div>
+  </div>
+
+<!-- TOC Page -->
+  <div id="toc" class="page">
+    <div class="card">
+      <h1>Table of Contents</h1>
+
+      <div class="toc-section">
+        <h2>A. POETRY</h2>
+        <div class="toc-item" onclick="goToPage('poem1')">1. "Sonnet 116" by William Shakespeare (Pg. 68)</div>
+        <div class="toc-item" onclick="goToPage('poem2')">2. "Eldorado" by Edgar Allan Poe</div>
+        <div class="toc-item" onclick="goToPage('poem3')">3. "To a Daughter Leaving Home" by Linda Pastan (Pg. 121)</div>
+        <div class="toc-item" onclick="goToPage('poem4')">4. "We Wear the Mask" by Paul Laurence Dunbar (Pg. 252)</div>
+        <div class="toc-item" onclick="goToPage('poem5')">5. "Hurrah for Thunder!" by Christopher Okigbo (Pg. 322-324)</div>
+        <div class="toc-item" onclick="goToPage('poem6')">6. "I See You" by Niyi Osundare (Pg. 326-327)</div>
+        <div class="toc-item" onclick="goToPage('poem7')">7. "An African Elegy" by Ben Okri (Pg. 328-329)</div>
+      </div>
+
+      <div class="toc-section">
+        <h2>B. FICTION</h2>
+        <div class="toc-item" onclick="goToPage('fiction1')">1. "The Origin of Death" (Pg. 170-171)</div>
+        <div class="toc-item" onclick="goToPage('fiction2')">2. "The Gourd Full of Wisdom" (Pg. 171)</div>
+        <div class="toc-item" onclick="goToPage('fiction3')">3. "The Widow of Ephesus" by Petronius (Pg. 176)</div>
+        <div class="toc-item" onclick="goToPage('fiction4')">4. "Civil Peace" by Chinua Achebe (Pg. 180-185)</div>
+        <div class="toc-item" onclick="goToPage('fiction5')">5. "The Storm" by McKnight Malmar (Pg. 272 to 281)</div>
+        <div class="toc-item" onclick="goToPage('fiction6')">6. "Dead Man Walking" by Ifeanyi Ajaegbo (Pg. 332-334)</div>
+      </div>
+
+      <!-- New Section for Past Questions -->
+      <div class="toc-section">
+        <h2>C. PAST QUESTIONS</h2>
+        <div class="toc-item" onclick="goToPage('past-questions')">1. Department of English Studies Exam Questions (2023/2024)</div>
+      </div>
+
+      <div class="nav">
+        <button class="btn" onclick="goToPage('intro')">← Back</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- === POETRY PAGES === -->
+  <!-- Poem 1 -->
+<div id="poem1" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>Sonnet 116</h2>
+    <p>
+      Let me not to the marriage of true minds<br>
+      Admit impediments. Love is not love<br>
+      Which alters when it alteration finds,<br>
+      Or bends with the remover to remove:<br>
+      O no! it is an ever-fixed mark<br>
+      That looks on tempests and is never shaken;<br>
+      It is the star to every wandering bark,<br>
+      Whose worth's unknown, although his height be taken.<br>
+      Love's not Time's fool, though rosy lips and cheeks<br>
+      Within his bending sickle's compass come:<br>
+      Love alters not with his brief hours and weeks,<br>
+      But bears it out even to the edge of doom.<br>
+      If this be error and upon me proved,<br>
+      I never writ, nor no man ever loved.<br><br>
+      <em>— William Shakespeare</em>
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem2')">Next →</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Poem 2 -->
+<div id="poem2" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>Eldorado</h2>
+    <p>
+      Gaily bedight,<br>
+      A gallant knight,<br>
+      In sunshine and in shadow,<br>
+      Had journeyed long,<br>
+      Singing a song,<br>
+      In search of Eldorado.<br><br>
+
+      But he grew old—<br>
+      This knight so bold—<br>
+      And o’er his heart a shadow<br>
+      Fell as he found<br>
+      No spot of ground<br>
+      That looked like Eldorado.<br><br>
+
+      And, as his strength<br>
+      Failed him at length,<br>
+      He met a pilgrim shadow—<br>
+      “Shadow,” said he,<br>
+      “Where can it be—<br>
+      This land of Eldorado?”<br><br>
+
+      “Over the Mountains<br>
+      Of the Moon,<br>
+      Down the Valley of the Shadow,<br>
+      Ride, boldly ride,”<br>
+      The shade replied,—<br>
+      “If you seek for Eldorado!”<br><br>
+      <em>— Edgar Allan Poe</em>
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem1')">← Previous</button>
+      <button class="btn" onclick="goToPage('poem3')">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Poem 3 -->
+<div id="poem3" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>To a Daughter Leaving Home</h2>
+    <p>
+      When I taught you at eight to ride<br>
+      a bicycle, loping along beside you<br>
+      as you wobbled away on two round wheels,<br>
+      my own mouth rounding in surprise when you pilled<br>
+      ahead down the curved path of the park,<br>
+      I kept waiting for the thud<br>
+      Of your crash as I sprinted to catch up,<br>
+      while you grew smaller, more breakable<br>
+      with distance, pumping, pumping<br>
+      for your life, screaming with laughter,<br>
+      the hair flapping behind you like a<br>
+      handkerchief waving goodbye.<br><br>
+      <em>— Linda Pastan</em>
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem2')">← Previous</button>
+      <button class="btn" onclick="goToPage('poem4')">Next →</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Poem 4 -->
+<div id="poem4" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>We Wear the Mask</h2>
+    <p>
+      We wear the mask that grins and lies,<br>
+      It hides our cheeks and shades our eyes,<br>
+      This debt we pay to human guile;<br>
+      With torn and bleeding hearts we smile,<br>
+      And mouth with myriad subtleties.<br><br>
+
+      Why should the world be over-wise,<br>
+      In counting all our tears and sighs?<br>
+      Nay, let them only see us, while<br>
+      <em>We wear the mask.</em><br><br>
+
+      We smile, but, O great Christ, our cries<br>
+      To thee from tortured souls arise.<br>
+      We sing, but oh the clay is vile<br>
+      Beneath our feet, and long the mile;<br>
+      But let the world dream otherwise,<br>
+      <em>We wear the mask!</em><br><br>
+      <em>— Paul Laurence Dunbar</em>
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem3')">← Previous</button>
+      <button class="btn" onclick="goToPage('poem5')">Next →</button>
+    </div>
+  </div>
+</div>
+  
+  <!-- Poem 5 -->
+<div id="poem5" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>Hurrah for Thunder!</h2>
+    <p>
+      WHATEVER happened to the elephant -<br>
+      Hurrah for thunder -<br><br>
+
+      The elephant, the tetrach of the jungle:<br>
+      With a wave of hand<br>
+      He could pull four trees from the ground;<br>
+      His four mortar legs pounded the earth:<br>
+      Wherever they tread,<br>
+      The grass was forbidden to be there.<br><br>
+
+      Alas! The elephant has fallen -<br>
+      Hurrah for thunder -<br><br>
+
+      But alas the hunters are talking about pumpkins:<br>
+      If they share the meat, let them remember thunder.<br><br>
+
+      The eye that looks down will surely see the nose;<br>
+      The finger that fits should be used to pick the nose.<br><br>
+
+      Today - for tomorrow, today becomes yesterday:<br>
+      How many million promises can ever fill a basket...<br><br>
+
+      If I don't learn to shut up my mouth, I'll soon go to hell,<br>
+      I, Okigbo, town crier, together with my iron bell.<br><br>
+      <em>— Christopher Okigbo</em>
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem4')">← Previous</button>
+      <button class="btn" onclick="goToPage('poem6')">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Poem 6 -->
+<div id="poem6" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>I See You</h2>
+    <p>
+      I see you,<br>
+      In the golden splendour of the rising sun...<br>
+      I see you,<br>
+      in the turgid darkness of night...<br><br>
+      
+      I see you,<br>
+      in the leaping song of the river...<br>
+      I see you,<br>
+      in the green glory of the forest...<br><br>
+
+      I see you,<br>
+      in the Sahara’s brown accent...<br>
+      I see you,<br>
+      in the rhythm of the rain...<br>
+      I see you,<br>
+      in the chime of the bell...<br><br>
+
+      I see you,<br>
+      in the millipede legs of the clock...<br>
+
+      I see you,<br>
+      in the tempting truth of fire...<br>
+      I see you,<br>
+      in the fluent chapter of shaping clay<br><br>
+
+      I see you,<br>
+      in the fluff of laughing feathers...<br>
+      I see you,<br>
+      in the wet acre of my dreams...<br>
+
+      I see you,<br>
+      in the valley between my songs<br>
+      I see you,<br>
+      In every thing.<br><br>
+      
+      <em>— Niyi Osundare</em>
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem5')">← Previous</button>
+      <button class="btn" onclick="goToPage('poem7')">Next →</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Poem 7 -->
+<div id="poem7" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>An African Elegy</h2>
+    <p>
+      We are the miracles that God made<br>
+      To taste the bitter fruit of Time.<br>
+      We are precious.<br>
+      And one day our suffering<br>
+      Will turn into the wonders of the earth.<br><br>
+
+      There are things that burn me now<br>
+      Which turn golden when I am happy.<br>
+      Do you see the mystery of our pain?<br>
+      That we bear poverty<br>
+      And are able to sing and dream sweet things<br><br>
+
+      And that we never curse the air when it is warm<br>
+      Or the fruit when it tastes so good<br>
+      Or the lights that bounce gently on the waters?<br>
+      We bless things even in our pain.<br>
+      We bless them in silence.<br><br>
+
+      That is why our music is so sweet.<br>
+      It makes the air remember.<br>
+      There are secret miracles at work<br>
+      That only Time will bring forth.<br>
+      I too have heard the dead singing.<br><br>
+
+      And they tell me that<br>
+      This life is good<br>
+      They tell me to live it gently<br>
+      With fire, and always with hope.<br>
+      There is wonder here<br><br>
+
+      And there is surprise<br>
+      In everything the unseen moves.<br>
+      The ocean is full of songs.<br>
+      The sky is not an enemy.<br>
+      Destiny is our friend.<br><br>
+      <em>— Ben Okri</em>
+    </p>
+    <div class="nav">
+  <button class="btn" onclick="goToPage('poem6')">← Previous</button>
+  <button class="btn" onclick="goToPage('fictionIntro')">Next →</button>
+</div>
+  </div>
+</div>
+
+<!-- Fiction Interlude -->
+<div id="fictionIntro" class="page">
+  <div class="card" style="text-align:center; animation: popIn 0.6s ease;">
+    <h2>📖 Entering Fiction</h2>
+    <p style="font-size:1.2em; margin-top:1rem;">
+      Fasten your seatbelt... <br> STORIES AHEAD!
+    </p>
+    <button class="start-btn" onclick="goToPage('fiction1')">Take Me There →</button>
+  </div>
+</div>
+
+<style>
+  @keyframes popIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+
+  <!-- === FICTION PAGES === -->
+  <div id="fiction1" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>The Origin of Death</h2>
+    <p>
+      One day God threatened to destroy the world. All mankind was afraid and assembled to decide how to prevent this disaster. 
+      During the meeting there arose two opposing groups. One group said that men should not die at all. 
+      The other group said that Death was necessary as long as people died one after another. 
+      After endless arguments on both sides, God rose in anger and said that he would destroy everybody at once unless mankind reached an agreement within the next two days.
+    </p>
+    <p>
+      It was clear to mankind that they could not agree. Each group decided it would present its case directly to God. 
+      The group that did not want Death at all decided to send their memorandum through the Dog. 
+      The opposing group chose the Tortoise as their agent.
+    </p>
+    <p>
+      It would be a long journey for the Dog and the Tortoise. To reach God's kingdom they had to travel across seven seas and seven deserts. 
+      Those who did not want Death were confident that the Dog would be the first to reach God since he was faster than the Tortoise.
+    </p>
+    <p>
+      As soon as the signal was given, the Dog dashed off amidst the cheers of those who did not want Death. 
+      At midday he entered the bush where he sought animal dung for his belly. 
+      The Tortoise went on slowly but steadily. Not once did he stop to eat or drink.
+    </p>
+    <p>
+      The Tortoise reached God’s kingdom before the Dog. He tapped at God’s door and as soon as he was greeted delivered his message. 
+      God accepted it and agreed that Death should take people one after another.
+    </p>
+    <p>
+      Meanwhile the Dog, who had fallen asleep after a heavy lunch, had stirred and was hurrying to God’s kingdom. 
+      But he arrived after God had decided that Death should take men. 
+      No matter how he begged God would not accept his message.
+    </p>
+    <p>
+      Since that day Death has been taking men one after another.
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('poem7')">← Previous</button>
+      <button class="btn" onclick="goToPage('fiction2')">Next →</button>
+    </div>
+  </div>
+</div>
+  
+<div id="fiction2" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>The Gourd Full of Wisdom</h2>
+    <p>
+      The spider noticed one day how other people than himself were beginning to use wisdom. 
+      This did not suit him at all, as he wanted to keep all the wisdom for himself.
+    </p>
+    <p>
+      So he collected it all and put it into a large gourd that he had hollowed out for the purpose. 
+      He then hung the gourd up on the wall of his house. But his fears were not allayed and he decided 
+      to hide it right away in the bush where no man could find it.
+    </p>
+    <p>
+      Therefore, on the following morning, he took down the gourd from the wall, and accompanied by his son went forth into the bush. 
+      Presently they came to a tall palm tree, and it seemed to the spider that if he put the gourd at the top among the foliage 
+      it would be quite safe.
+    </p>
+    <p>
+      So he began to climb the palm tree. But the gourd was a large one and the spider had slung it in front of him. 
+      So he could not make any progress. Always the gourd got in his way. 
+      Now the son of the spider had been watching his father’s efforts and at last cried out: 
+      “Father, why not sling the gourd over your back?”
+    </p>
+    <p>
+      And Anansi, the spider answered: “My son, you are right: but your words show to me that it is better 
+      for many people to have wisdom rather than one. For alone I should not have thought of that.” 
+      So speaking, he opened the gourd and scattered the wisdom all over the ground so that he who may want it can gather what he will.
+    </p>
+    <div class="nav">
+      <button class="btn" onclick="goToPage('fiction1')">← Previous</button>
+      <button class="btn" onclick="goToPage('fiction3')">Next →</button>
+    </div>
+  </div>
+</div>
+
+  
+<div id="fiction3" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>The Widow of Ephesus</h2>
+    
+    <p>
+      Once upon a time there was a certain married woman in the city of Ephesus whose fidelity to her husband was so famous that the women from all the neighboring towns and villages used to troop into Ephesus merely to stare at this prodigy. It happened, however, that her husband one day died. Finding the normal custom of following the cortege with hair unbound and beating her breast in public quite inadequate to express her grief, the lady insisted on following the corpse right into the tomb, an underground vault of the Greek type, and there set herself to guard the body, weeping and wailing night and day.
+    </p>
+    
+    <p>
+      Although in her extremes of grief she was clearly courting death from starvation, her parents were utterly unable to persuade her to leave, and even the magistrates, after one last supreme attempt, were rebuffed and driven away. In short, all Ephesus had gone into mourning for this extraordinary woman, all the more since the lady was now passing her fifth consecutive day without once tasting food. Beside the failing woman sat her devoted maid, sharing her mistress’s grief and relighting the lamp whenever it flickered out. The whole city could speak, in fact, of nothing else: here at last, all classes alike agreed, was the one true example of conjugal fidelity and love.
+    </p>
+    
+    <p>
+      In the meantime, however, the governor of the province gave orders that several thieves should be crucified in a spot close by the vault where the lady was mourning her dead husband’s corpse. So, on the following night, the soldier who had been assigned to keep watch on the crosses so that nobody could remove the thieves’ bodies for burial suddenly noticed a light blazing among the tombs and heard the sounds of groaning. And prompted by a natural human curiosity to know who or what was making those sounds, he descended into the vault.
+    </p>
+    
+    <p>
+      But at the sight of a strikingly beautiful woman, he stopped short in terror, thinking he must be seeing some ghostly apparition out of hell. Then, observing the corpse and seeing the tears on the lady’s face and the scratches her fingernails had gashed in her cheeks, he realized what it was: a widow, in inconsolable grief. Promptly fetching his little supper back down to the tomb, he implored the lady not to persist in her sorrow or break her heart with useless mourning.
+    </p>
+    
+    <p>
+      All men alike, he reminded her, have the same end; the same resting place awaits us all. He used, in short, all those platitudes we use to comfort the suffering and bring them back to life. His consolations, being unwelcome, only exasperated the widow more; more violently than ever she beat her breast, and tearing out her hair by the roots, scattered it over the dead man’s body. Undismayed, the soldier repeated his arguments and pressed her to take some food, until the little maid, quite overcome by the smell of the wine, succumbed and stretched out her hand to her tempter. Then, restored by the food and wine, she began herself to assail her mistress’s obstinate refusal.
+    </p>
+    
+    <p>
+      “How will it help you,” she asked the lady, “if you faint from hunger? Why should you bury yourself alive, and go down to death before the Fates have called you? What does Vergil say?
+    </p>
+    
+    <p><em>If love is pleasing, lady, yield yourself to love.</em></p>
+    
+    <p>
+      None of us, of course, really dislikes being told that we must eat, that life is to be lived. And the lady was no exception. Weakened by her long days of fasting, her resistance crumbled at last, and she did to the food the soldier offered her as hungrily as the little maid had eaten earlier.
+    </p>
+    
+    <p>
+      Well, you know what temptations are normally aroused in a man on a full stomach. So the soldier, mustering all those blandishments by means of which he had persuaded the lady to live, now laid determined siege to her virtue. And chaste though she was, the lady found him singularly attractive and his arguments persuasive. As for the maid, she did all she could to help the soldier’s cause, repeating like a refrain the appropriate line of Vergil: <em>If love is pleasing, lady, yield yourself to love.</em>
+    </p>
+    
+    <p>
+      To make the matter short, the lady’s body soon gave up the struggle; she yielded and our happy warrior enjoyed a total triumph on both counts. That very night their marriage was consummated, and they slept together the second and the third night too, carefully shutting the door of the tomb so that any passing friend or stranger would have thought the lady of famous chastity had at last expired over her dead husband’s body.
+    </p>
+    
+    <p>
+      As you can perhaps imagine, our soldier was a very happy man, utterly delighted with his lady’s ample beauty and that special charm that a secret love confers. Every night, as soon as the sun had set, he bought what few provisions his slender pay permitted and smuggled them down to the tomb.
+    </p>
+    
+    <p>
+      One night, however, the parents of one of the crucified thieves, noticing that the watch was being badly kept, took advantage of our hero’s absence to remove their son’s body and bury it. The next morning, of course, the soldier was horror-struck to discover one of the bodies missing from its cross, and ran to tell his mistress of the horrible punishment which awaited him for neglecting his duty.
+    </p>
+    
+    <p>
+      In the circumstances, he told her, he would not wait to be tried and sentenced, but would punish himself then and there with his own sword. All he asked of her was that she make room for another corpse and allow the same gloomy tomb to enclose husband and lover together.
+    </p>
+    
+    <p>
+      Our lady’s heart, however, was no less tender than pure. “God forbid,” she cried, “that I should have to see at one and the same time the dead bodies of the only two men I have ever loved. No, better far, I say, to hang the dead than kill the living.” With these words, she gave orders that her husband’s body should be taken from its bier and strung up on the empty cross. The soldier followed this good advice, and the next morning the whole city wondered by what miracle the dead man had climbed up on the cross.
+    </p>
+    
+    <div class="nav">
+      <button class="btn" onclick="goToPage('fiction2')">← Previous</button>
+      <button class="btn" onclick="goToPage('fiction4')">Next →</button>
+    </div>
+  </div>
+</div>
+  
+ <div id="fiction4" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>Civil Peace</h2>
+
+    <p>Jonathan Iwegbu counted himself extraordinarily lucky. “Happy survival!” meant so much more to him than just a current fashion of greeting old friends in the hazy days of peace. It went deep to his heart. He had come out of the war with five inestimable blessings—his head, his wife Maria’s head, and the heads of three out of their four children. As a bonus he also had his old bicycle—a miracle too but naturally not to be compared to the safety of five human heads.</p>
+
+    <p>The bicycle had a little history of its own. One day at the height of the war it was commandeered “for urgent military action.” Hard as its loss would have been to him he would still have let it go without a thought had he not had some doubts about the genuineness of the officer. It wasn’t his disreputable rags, nor the toes peeping out of one blue and one brown canvas shoe, nor yet the two stars of his rank done obviously in a hurry in biro that troubled Jonathan; many good and heroic soldiers looked the same or worse. It was rather a certain lack of grip and firmness in his manner. So Jonathan, suspecting he might be amenable to influence, rummaged in his raffia bag and produced the two pounds with which he had been going to buy firewood which his wife, Maria, retailed to camp officials for extra stockfish and cornmeal, and got his bicycle back. That night he buried it in the little clearing in the bush where the dead of the camp, including his own youngest son, were buried. When he dug it up again a year later after the surrender all it needed was a little palm oil greasing. “Nothing puzzles God,” he said in wonder.</p>
+
+    <p>He put it to immediate use as a taxi and accumulated a small pile of Biafran money ferrying camp officials and their families across the four-mile stretch to the nearest tarred road. His standard charge per trip was six pounds and those who had the money were only glad to be rid of some of it in this way. At the end of a fortnight he had made a small fortune of one hundred and fifteen pounds.</p>
+
+    <p>Then he made the journey to Enugu and found another miracle waiting for him. It was unbelievable. He rubbed his eyes and looked again and it was still standing there before him. But, needless to say, even that monumental blessing must be accounted as totally inferior to the five heads in the family. This new-found miracle was his little house in Ogui Overside. Indeed nothing puzzles God! Only two houses away a huge concrete edifice some wealthy contractor had put up just before the war was a mountain of rubble. And here was poor Jonathan’s little house of no regrets built with mud blocks quite intact!</p>
+
+    <p>Of course the doors and windows were missing and five sheets off the roof. But what was that? And anyhow he had returned to Enugu early enough to pick up bits of old zinc and wood and soggy sheets of cardboard lying around the neighborhood before thousands more came out of the forest holes looking for the same things. He got a destitute carpenter with one old hammer, a blunt plane, and a few bent and rusty nails to turn his tool box to turn this assortment of wood, paper, and metal into doors and window shutters for five Nigerian shillings or fifty Biafran pounds. He paid the pounds, and moved in with his overjoyed family carrying five heads on their shoulders.</p>
+
+    <p>His children picked mangoes near the military cemetery and sold them to soldier' wives for a few pennies—real pennies this time—and his wife started making breakfast akara balls for neighbors in a hurry to start life again. With his family earnings he took his bicycle to the villages around and bought fresh palm wine which he mixed generously in his rooms with the water which had recently started running again in the public tap down the road, and opened up a bar for soldiers and other lucky people with good money. At first he went daily, then every other day, and finally once a week, to the offices of the Coal Corporation where he used to be a miner, to find out what was what. The only thing he did find out in the end was that that little house of his was even a greater blessing than he had thought. Some of the fellow ex-examiners who had nowhere to return at the end of the day’s waiting just slept outside the doors of the offices and cooked what meal they could scrounge together in Bournvita tins. As the weeks lengthened and still nobody could say what was what Jonathan discontinued his weekly visits altogether and faced his palm wine bar.</p>
+
+    <p>But nothing puzzles God. Came the day of the windfall when after five days of endless scuffles in queues and counterqueues in the sun outside the Treasury he has twenty pounds counted into his palm as ex gratia award for the rebel money he had turned in. It was like Christmas for him and for many others like him when the payment began. They called it (since few could manage its proper official name) egg-rasher.</p>
+
+    <p>As soon as the pound notes were placed in his palm Jonathan simply closed it tight over them and buried fist and money inside his trouser pocket. He had to be extra careful because he had seen a man a couple of days earlier collapse into near-madness in an instant before that oceanic crowd because no sooner had he got his twenty pounds than some heartless ruffian picked it off him. Though it was not right that a man in such an extremity of agony should be blamed yet many in the queues that day were able to remark quietly at the victim’s carelessness, especially after he pulled out the innards of his pocket and revealed a hole in it big enough to pass a thief’s head. But of course he had insisted that the money had been in the other pocket, pulling it out too to show its comparative wholeness. So one had to be careful.</p>
+
+    <p>Jonathan soon transferred the money to his left hand and pocket so as to leave his right free for shaking hands should the need arise, though by fixing his gaze at such an elevation as to miss all approaching human faces he made sure that the need did not arise, until he got home.</p>
+
+    <p>He was normally a heavy sleeper but that night he heard all the neighborhood noises die down one after another. Even the night watchman who knocked the hour on some metal somewhere in the distance had fallen silent after knocking one o’clock. That must have been the last thought in Jonathan’s mind before he was finally carried away himself. He couldn’t have been gone for long, though, when he was violently awakened again.</p>
+
+    <p><em>“Who is knocking?”</em> whispered his wife lying beside him on the floor.</p>
+    <p><em>“I don’t know.”</em> he whispered back breathlessly.</p>
+
+    <p>The second time the knocking came it was so loud and imperious that the rickety old door could have fallen down.</p>
+    <p><em>“Who in knocking?”</em> he asked them, his voice parched and trembling.</p>
+    <p><em>“Na tief-man and him people. Make you open de door.”</em></p>
+
+    <p>This was followed by the heaviest knocking of all. Maria was the first to raise the alarm, then he followed and all their children.</p>
+
+    <p><em>“Police-o! Thieves-o! Neighbors-o! Police-o! We are lost! We are dead! Neighbors, are you asleep? Wake up! Police-o!”</em></p>
+    <p><em>“Police-o! Tief-man-o! Neighbors-o! We are lost! We are dead! Neighbors, are you asleep? Wake up! Police-o!”</em></p>
+
+    <p>There were at least five other voices besides the leader’s. Jonathan and his family were now completely paralyzed by terror. Maria and the children sobbed inaudibly like lost souls. Jonathan groaned continuously.</p>
+
+    <p>The silence that followed the thieves’ alarm vibrated horribly. Jonathan all but begged their leader to speak again and be done with it.</p>
+    <p><em>“My frien, we don try our best for call dem but I tink say dem all done sleep-o. So wetin we go do now? Sometaim you wan call soja? Or you wan make we call dem for you? Soja better pass police. No be so?”</em></p>
+
+    <p><em>“Na so!”</em> replied his men.</p>
+
+    <p>Jonathan thought he heard even more voices now than before and groaned heavily. His legs were sagging under him and his throat felt like sandpaper.</p>
+    <p><em>“My frien, why you no de talk again. I de ask you say you wan make we call soja?”</em></p>
+    <p><em>“No.”</em></p>
+
+    <p><em>“Awrighto. Now make we talk business. We no be bad tief. We no like for make trouble. Trouble done finish. War done finish and all the katakata wey de for inside. No Civil War again. This time na Civil Peace. No be so?”</em></p>
+
+    <p><em>“Na so!”</em> answered the horrible chorus.</p>
+
+    <p><em>“What do you want from me? I am a poor man. Everything I had went with this war. Why do you come to me? You know people who have money. We…”</em></p>
+    <p><em>“Awright! We know say you no get plenty money. But we wey no get even anini. So derefore make you open dis window and give us one hundred pound and we go commot. Otherwise, we go come for inside now to show your guitar boy like dis…”</em></p>
+
+    <p>A volley of automatic fire rang through the sky. Maria and the children began to weep aloud again.</p>
+
+    <p><em>“Ah, missis de cry again. No need for dat. We done talk say we be good tief. We just take our small money and go nwayorly. No molest. Abi we de molest?”</em></p>
+    <p><em>“At all!”</em> sang the chorus.</p>
+
+    <p><em>“My friends, I hear what you say and I thank you. If I had one hundred pounds…”</em></p>
+    <p><em>“Lookia my frien, no be play we come play for your house. If we make mistake and step for inside you no go like am-o so derefore.”</em></p>
+
+    <p><em>“To God who made me; if you come inside and find one hundred pounds, take and shoot me and shoot my wife and children. I swear of God. The only money I have in this life is this twenty pounds egg-rasher they gave me today…”</em></p>
+
+    <p><em>“OK. Time de go. Make you open dis window and bring the twenty pound. We go manage am like dat.”</em></p>
+
+    <p>There were now loud murmurs of dissent among the chorus:</p>
+    <p><em>“Na lie de man de lie; e get plenty money… Make we go inside and search properly well… Wetin be twenty pound?…”</em></p>
+
+    <p><em>“Shurrup!”</em> rang the leader’s voice like a lone shot in the sky and silenced the murmuring at once.</p>
+    <p><em>“Are you dere? Bring the money quick!”</em></p>
+
+    <p><em>“I am coming.”</em> said Jonathan fumbling in the darkness with the key of the small wooden box he kept by his side on the mat.</p>
+
+    <p>At the first sign of light as neighbours and others assembled to commiserate with him he was already strapping his five-gallon demijohn to his bicycle carrier and his wife, sweating in the open fire, was turning over akara balls in a wide clay bowl of boiling oil. In the corner his eldest son was rinsing out dregs of yesterday’s palm wine from old beer bottles.</p>
+
+    <p><em>“I count it as nothing. What is egg-rasher? Did I depend on it last week? Or is it greater than other things that went with the war? I say, let egg-rasher perish in the flames! Let it go where everything else has gone. Nothing puzzles God.”</em></p>
+
+    <div class="nav">
+      <button class="btn" onclick="goToPage('fiction3')">← Previous</button>
+      <button class="btn" onclick="goToPage('fiction5')">Next →</button>
+    </div>
+  </div>
+</div>
+  
+  <div id="fiction5" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>The Storm</h2>
+
+    <p>She inserted her key in the lock and turned the knob. The March wind snatched the door out of her hand and slammed it against the wall. It took strength to close it against the pressure of the gale, and she had no sooner closed it than the rain came in a pounding downpour, beating noisily against the windows as if trying to follow her in. She could not hear the taxi as it started up and went back down the road.</p>
+
+    <p>She breathed a sigh of thankfulness at being home again and in time. In rain like this, the crossroads always were flooded. Half an hour later her car could not have got through the rising water, and there was no alternative route...</p>
+
+    <p>But Ben wasn't here. She looked at the clock on the mantel and saw it was nearly ten. Perhaps he had not planned to come home tonight, as he was not expecting her; even before she had left he frequently was in the city all night because business kept him too late to catch the last train. If he did not come soon, he would not be able to make it at all.</p>
+
+    <p>She did not like the thought. The storm was growing worse. She could hear the wild lash of the trees, the whistle of the wind around the corners of the little house. For the first time she regretted this move to the far suburbs. There had been neighbours at first, a quarter-mile down the road; but they moved away several months ago, and now their house stood empty…</p>
+
+    <p>She returned to the kitchen and poured herself a cup of coffee, wishing that Ben would come home to share it with her. She carried her cup into the living-room and set it on the small, round table beside Ben’s special big chair. The furnace was still mumbling busily, sending up heat, but she was colder than ever. She shivered and got an old jacket of Ben’s from the closet and wrapped it around her before she sat down…</p>
+
+    <p>Her eye caught a shred of white protruding under a magazine on the table beside her. She put out a hand toward it, yet her fingers were almost reluctant to grasp it. She pulled it out nevertheless and saw that it was, as she had known instinctively, another of the white envelopes. It was empty, and it bore, as usual, the neat, typewritten address: <em>(Benj. T. Willson, Esq., Wildwood Road, Fairport, Conn. The postmark was New York City.)</em></p>
+
+    <p>It never varied.
+    She felt the familiar constriction about the heat as she held it in her hands. What these envelopes contained she never had known. What she did know was their effect on Ben. After receiving one — one came every month or two — he was irritable, at times almost ugly...</p>
+
+    <p>She tore the envelope into tiny pieces and tossed them into the fireplace. The wind shook the house in its giant grip, and a branch crashed on the roof. As she straightened, a movement at the window caught her eye.</p>
+
+    <p>She froze there, not breathing, still half-bent toward the cold fireplace, her hand still extended. The glimmer of white at the window behind the sheeting blur of rain had been — she was sure of it — a human face. There had been eyes. She was certain there had been eyes staring in at her.</p>
+
+    <p>The wind’s shout took on a personal, threatening note. She was rigid for a long time, never taking her eyes from the window, but nothing moved there now except the water on the windowpane; beyond it there was blackness, and that was all. The only sounds were the thrashing of the trees, the roar of water, and the ominous howl of the wind.</p>
+
+    <p>She began to breathe again, at last found courage to turn out the light and go to the window. The darkness was a well, impenetrable and secret, and the blackness within the house made the storm close in, as if it were a pack of wolves besieging the house. She hastened to put on the light again.</p>
+
+    <p>She must have imagined those staring eyes. Nobody could be out on a night like this. Nobody. Yet she found herself terribly shaken. If only Ben would come home. If only she were not so alone.</p>
+
+    <p>She shivered and pulled Ben’s coat tighter about her and told herself she was becoming a morbid fool. Nevertheless, she found the aloneness intolerable. Her ears strained to hear prowling footsteps outside the windows. She became convinced that she did hear them, slow and heavy.</p>
+
+    <p>Perhaps Ben could be reached at the hotel where he sometimes stayed. She no longer cared whether her homecoming was a surprise to him. She wanted to hear his voice. She went to the telephone and lifted the receiver.</p>
+
+    <p>The line was quite dead.
+    The wires were down, of course.
+    She fought panic. The face at the window had been an illusion, a trick of the light reflected on the sluicing pane; and the sound of footsteps was an illusion, too. Actual ones would be inaudible in the noise made by the wind storm. Nobody would be out tonight. Nothing threatened her, really. The storm was held at bay beyond these walls, and in the morning the sun would shine again.</p>
+
+    <p>The thing to do was to make herself as comfortable as possible and settle down with a book. There was no use going to bed. She couldn’t possibly sleep. She would only lie there wide awake and think of that face at the window, hear those footsteps.</p>
+
+    <p>She would get some wood for a fire in the fireplace. She hesitated at the top of the cellar stairs. The light, as she switched it on, seemed insufficient; the concrete wall at the foot of the stairs was dark with moisture and somehow gruesome. And wind was chilling her ankles. Rain was beating in through the outside door to the cellar, because that door was standing open.</p>
+
+    <p>The inner bolt sometimes did not hold, she knew very well. If it had not been carefully closed, the wind could have loosened it. Yet if the open door increased her panic. It seemed to argue the presence of something less impersonal than the gale. It took her a long minute to nerve herself to go down the steps and reach out into the darkness for the doorknob.</p>
+
+    <p>In just that instant she was soaked; but her darting eyes could find nothing outdoors but the black, wavering shapes of the maples to the side of the house. The wind helped her and slammed the door resoundingly. She jammed the bolt home with all her strength and then tested it to make sure it would hold. She almost sobbed with the relief of knowing it to be firm against any intruder.</p>
+
+    <p>She stood with her wet clothes clinging to her while the thought came that turned her bones to water. Suppose—suppose the face at the window had been real, after all. Suppose its owner had found shelter in the only shelter to be had within a quarter-mile—this cellar.</p>
+
+    <p>She almost flew up the stairs again, but then she took herself firmly in hand. She must not let herself go. There had been many storms before; just because she was alone in this one, she must not let morbid fancy run away with her. But she could not throw off the reasonless fear that oppressed her, although she forced it back a little. She began to hear again the tread of the prowler outside the house. Although she <em>knew</em> it to be imagination, it was fearfully real—the crunch of feet on gravel, slow, persistent, heavy, like the patrol of a sentinel.</p>
+
+    <p>She had only to get an armful of wood. Then she could have a fire, she would have light and warmth and comfort. She would forget these terrors.</p>
+
+    <p>The cellar smelled of dust and old moisture. The beams were fuzzed with cobwebs. There was only one light, a dim one in the corner. A little rivulet was running darkly down the wall and already had formed a foot square pool on the floor.</p>
+
+    <p>The woodpile was in the far corner away from the light. She stopped and peered around. Nobody could hide here. The cellar was too open, the supporting stanchions too slender to hide a man.</p>
+
+    <p>The oil burner went off with a sharp click. Its mutter, she suddenly realized, it had something human and companionable about it. Nothing was down with her now but the snarl of the storm. She almost ran to the woodpile. Then something made her pause and stop before she bent to gather the logs.</p>
+
+    <p>What was it? Not a noise. Something she had seen as she hurried across that dusty floor. Something odd. She searched with her eyes. It was a spark of light she had seen, where no spark should be. An inexplicable dread clutched at her heart. Her eyes widened, round and dark as a frightened deer’s. Her old trunk that stood against the wall was open just a crack; from the crack came this tiny pinpoint of reflected light to prick the cellar’s gloom.</p>
+
+    <p>She went toward it like a woman hypnotized. It was only one more insignificant thing, like the envelope on the table, the vision of the face at the window, the open door. There was no reason for her to feel smothered in terror.</p>
+
+    <p>Yet she was sure she had not only closed, but clamped the lid on the trunk; she was sure because she kept two or three old coats in it, wrapped in newspapers and tightly shut away from moths. Now the lid was raised perhaps an inch. And the twinkle of light was still there as she bent back the lid. For a long moment she stood looking down into the trunk, while each detail of its contents imprinted itself on her brain like an image on film. Each tiny detail was indelibly clear and never to be forgotten.</p>
+
+    <p>She could not have stirred a muscle in that moment. Horror was a black cloak thrown around her, stopped her breath, hobbling her limbs.</p>
+
+    <p>Then her face dissolved into formlessness. She slammed down the lid and ran up the stairs like a mad thing. She was breathing again, in deep, sobbing breaths that tore at her lungs. She shut the door at the top of the stairs with a crash that shook the house; then she turned the key. Gasping, she clutched one of the sturdy maple chairs by the kitchen table and wedged it under the knob with hands she could barely control.</p>
+
+    <p>The wind took the house in its teeth and shook it as a dog shakes a rat.</p>
+
+    <p>Her first impulse was to get out of the house. But in the time it took to get to the front door she remembered the face at the window.</p>
+
+    <p>Perhaps she had not imagined it. Perhaps it was the face of a murderer—a murderer waiting for her out there in the storm; ready to spring on her out of the dark.</p>
+
+    <p>She fell into the big chair, her huddled body shaken by great tremors. She could not stay here—not with that thing in her trunk. Yet she dared not leave. Her whole being cried out for Ben. He would know what to do. She closed her eyes, opened them again, rubbed them hard. The picture still burned into her brain as if it had been etched with acid. Her hair, loosened, fell in soft straight wisps about her forehead, and her mouth was slack with terror.</p>
+
+    <p>Her old trunk had held the curled-up body of a woman. She had not seen the face; the head had been tucked down into the hollow of the shoulder, and a shower of hair had fallen over it. The woman had worn a red dress. One hand had rested near the edge of the trunk, and on its third finger there had been a man's ring, a signet bearing the raised figure of a rampant lion with a small diamond between its paws. It had been the diamond that caught the light. The little bulb in the corner of the cellar had picked out this ring from the semidarkness and made it stand out like a beacon.</p>
+
+    <p>She never would be able to forget it. Never forget how the woman looked: the pale, luminous flesh of her arms; her double-up knees against the side of the trunk, with their silken covering shining softly in the gloom; the strands of hair that covered her face…</p>
+
+    <p>Shudders continued to shake her. She bit her tongue and pressed her hand against her jaw to stop the chattering of her teeth. The salty taste of blood in her mouth steadied her. She tried to force herself to be rational, to plan; yet all the time the knowledge that she was imprisoned with the body of a murdered woman kept beating at her nerves like a flail…</p>
+
+    <p>She crouched there, shaking. It was as if the jaws of a great trap had closed on her; on one side the storm and the silence of the telephone, on the other the presence of the prowler and of that still, cramped figure in her trunk. She was caught between them, helpless.</p>
+
+    <p>As if to accent her helplessness, the wind steeped up its shriek, and a tree crashed thunderously out in the road. She heard glass shatter.</p>
+
+    <p>Her quivering body stiffened like a drawn bow. Was it the prowler attempting to get in? She forced herself to her feet and made a round of the windows on the first floor and the one above. All the glass was intact, staunchly resisting the pounding of the rain...</p>
+
+    <p>A kind of numbness began to come over her, as if her capacity for fear were exhausted. She went back to the chair and curled up in it. She prayed mutely for Ben and for daylight.</p>
+
+    <p>The clock said half-past twelve.</p>
+
+    <p>She huddled there, not moving and not thinking, not even afraid, only numb, for another hour. Then the storm held its breath for a moment, and in the brief space of silence she heard footsteps on the walk — actual footsteps, firm and quick and loud. A key turned in the lock. The door opened and Ben came in.</p>
+
+    <p>He was dripping, dirty, and white with exhaustion. But it was Ben. Once she was sure of it she flung herself on him, babbling incoherently of what she had found.</p>
+
+    <p>He kissed her lightly on the cheek and took her arms down from around his neck. “Here, here, my dear. You’ll get soaked. I’m drenched to the skin,” he removed his glasses and handed them to her, and she began to dry them for him. His eyes squinted at the light. “I had to walk in from the crossroads. What a night!” He began to strip off rubbers and coat and shoes. “you’ll never know what a difference it made, finding the place lighted. Lord, but it’s good to be home.”</p>
+
+    <p>She tried again to tell him of the past hours, but again he cut her short. “Now, wait a minute, my dear. I can see you’re bothered about something. Just wait until I get into some dry things; then I’ll come down and we’ll straighten it out. Suppose you rustle up some coffee and toast. I’m done up — the whole trip out was a nightmare, and I didn’t know if I’d never make it from the crossing. I’ve been hours.”</p>
+
+    <p>He did look tired, she thought with concern. Now that he was back, she could wait. The past hours had taken on the quality of a nightmare, horrifying but curiously unreal. With Ben here, so solid and commonplace and cheerful, she began to wonder if the hours were a nightmare. She even began to doubt the reality of the woman in the trunk, although she could see her as vividly as ever. Perhaps only the storm was real.</p>
+
+    <p>She went to the kitchen and began to make fresh coffee. The chair, still wedged against the kitchen door, was a reminder of her terror. Now that Ben was home it seemed silly, and she put it back in its place by the table.</p>
+
+    <p>He came down very soon, before the coffee was ready. How good it was to see him in that old gray bathrobe of his, his hands thrust into its pockets. How normal and wholesome he looked with his round face rubbed pink by a rough towel, and his hair standing up in damp little spikes around his bald spot. She was almost shamefaced when she told him of the face at the window, the open door, and finally of the body in the trunk. None of it, she saw quite clearly now, could possibly have happened.</p>
+
+    <p>Ben said so, without hesitation. But he came to put an arm around her. “You poor child. The storm scared you to death, and I don’t wonder. It’s given you the horrors.”</p>
+
+    <p>She smiled dubiously. “Yes. I’m almost beginning to think so. Now that you’re back, it seems so safe. But — but you will look in the trunk, Ben? I’ve got to know. I can see her so plainly. How could I imagine a thing like that?”</p>
+
+    <p>He said indulgently, “Of course I’ll look, if it will make you feel better. I’ll do it now. Then I can have my coffee in peace.” He went to the cellar door and opened it and snapped on the light. Her heart began to pound once more, a deafening roar in her ears. The opening of the cellar door opened, again, the whole vista of fear: the body, the police, the suspicions that would cluster about her and Ben. The need to hide this evidence of somebody’s crime.</p>
+
+    <p>She could not have imagined it; it was incredible that she could have believed, for a minute, that her mind had played such tricks on her. In another moment Ben would know it, too. She heard the thud as he threw back the lid of the trunk. She clutched at the back of a chair, waiting for his voice. It came in an instant.</p>
+    
+    <p>She could not believe it. It was as cheerful and reassuring as before. He said, “There’s nothing here but a couple of bundles. Come take a look.”</p>
+
+<p><strong>Nothing!</strong><br>
+Her knees were weak as she went down the stairs, down into the cellar again.</p>
+
+<p>It was still musty and damp and draped with cobwebs. The rivulet was still running down the wall, but the pool was larger now. The light was still dim.</p>
+
+<p>It was just as she remembered it except that the wind was whistling through a broken window and rain was splattering in on the bits of shattered glass on the floor. The breach lying across the sill had removed every scrap a glass from the frame and left not a single jagged edge.</p>
+
+<p>Ben was standing by the open trunk, waiting for her. His stocky body was a bulwark. “See,” he said, “there’s nothing. Just some old clothes of yours, I guess.”</p>
+
+<p>She went to stand beside him. Was she losing her mind? Would she, now, see that crushed figure in there, see the red dress and the smooth shining knees, when Ben could not? And the ring with the diamond between the lion’s paws?</p>
+
+<p>Her eyes looked, almost reluctantly, into the trunk. “It is empty!”</p>
+
+<p>There was the neat, newspaper-wrapped packaged she had put away so carefully, just as she had left them deep in the bottom of the trunk. And nothing else.</p>
+
+<p>She must have imagined the body. She was light with the relief the knowledge brought her, and yet confused and frightened, too. If her mind could play such tricks, if she could imagine anything so gruesome in the complete detail with which she had seen the dead woman in the truck, the thought of the future was terrifying. When might she not have another such hallucination?</p>
+
+<p>The actual, physical danger did not exist, however, and never existed. The threat of the law hanging over Ben had been based on a dream.</p>
+
+<p>“I – I dreamed it all. I must have,” she admitted. “Yet it was so horribly clear and I wasn’t asleep.” Her voice broke. “I thought – oh, Ben, I thought –”</p>
+
+<p>“What did you think, my dear?” His voice was odd, not like Ben’s at all. It had a cold cutting edge to it.</p>
+
+<p>He stood looking down at her with an immobility that chilled her more than the cold wind that swept in through the broken window. She tried to read his face, but the light from the little bulb was too weak. It left his features shadowed in broad, dark planes that made him look like a stranger, and somehow sinister.</p>
+
+<p>She said, “I” and faltered.  
+He still did not move, but his voice hardened. “What was it you thought?”</p>
+
+<p>She backed away from him.</p>
+
+<p>He moved, then. It was only to take his hands from his pockets to stretch his arms toward her; but stood for an instant staring at the thing that left her stricken, with a voiceless scream forming in her throat.</p>
+
+<p>She was never to know whether his arms had been outstretched to take her within their shelter or to clutch at her white neck. For she turned and fled, stumbling up the stairs in a mad panic of escape.</p>
+
+<p>He shouted, “Janet!” His steps were heavy behind her. He tripped on the bottom step and fell on one knee and cursed.</p>
+
+<p>Terror lent her strength and speed. She could not be mistaken. Although she had seen it only once, she knew that on the little finger of his left hand there had been the same, the unmistakable ring the dead woman had worn.</p>
+
+<p>The blessed wind snatched the front door from her and flung it wide, and she was out in the safe, dark shelter of the storm.</p>
+
+    <div class="nav">
+      <button class="btn" onclick="goToPage('fiction4')">← Previous</button>
+      <button class="btn" onclick="goToPage('fiction6')">Next →</button>
+    </div>
+  </div>
+</div>
+  
+  <div id="fiction6" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>Dead Man Walking — Ifeanyi Ajaegbo</h2>
+
+    <p>
+      The footsteps stopped outside my cell.  
+      I opened my eyes, but did not move. The prison superintendent stood in the dimly lit corridor, with two guards. He held a wooden truncheon in one hand. The other hand caressed a bunch of keys hanging loosely from his belt.
+    </p>
+
+    <p>
+      He struck the bars of the cell with the truncheon. The sound reverberated down the corridor like thunder behind distant hills. A disemboweled voice hurled a curse back at the source of the sound. Perhaps, an inmate of Solitude roused from sleep.
+    </p>
+
+    <p>
+      "I know you are awake, Father," the Superintendent said into the dark cell.  
+      "What do you want?" I asked him from the darkness.  
+      "Get up and get dressed."
+    </p>
+
+    <p>
+      I swung my legs off the side of the small six-spring bed. The springs creaked hideously in the darkness, the sound very much like the groaning of a dying monster.
+    </p>
+
+    <p>
+      "Where are we going?" I asked.  
+      "You will know when we get there."  
+      I smiled. I already knew. They had taken me there before, to show me where the road ended for all that must die. Perhaps they would bring me back like they did in the past. Perhaps they would not. If I came back, I would try to forget the ordeal of dying and waking up to realize that I still lived. I would try to continue living and dreaming like the living. If I did not come back, small groups of inmates would gather at the usual places — the general dining halls, the bathing stalls and the story of how the priest was taken away into the night would be told in hushed tones and whispers. The other inmates would shake their heads, sigh and stare into nothingness, wondering when it would happen also to them.
+    </p>
+
+    <p>
+      In the darkness of Solitude, time ceased to exist. Everything was in the moment. The moment was everything. A breath drawn in, exhaled, mingling with the tepid air in the cells could be the last. No one in Solitude knew this better than I did. I had seen silent, gruesome death.
+    </p>
+
+    <p>
+      I felt around under the bed for the pair of slippers I always left there. Grabbing a shirt from the back of the chair before the small reading table, I walked slowly towards the bars and the uncertain fate that waited in the darkness outside.
+    </p>
+
+    <p>
+      Outside the cell, Okito, the superintendent, led the way. I followed. The guards fell in step behind me.
+    </p>
+
+    <p>
+      In one of the cells along the corridor, someone’s voice struck up a song that was familiar to all who lived out the rest of their lives in Solitude.
+    </p>
+
+    <p>
+      “Dead man walking.”<br>
+      Other voices answered him from the darkness.<br>
+      “Dead man without a brother.”<br>
+      “Dead man is all alone.”<br>
+      “Dead man without a sister.”<br>
+      “Dead man is all alone.”<br>
+      “Dead man has no mother.”<br>
+      “Dead man is all alone.”<br>
+      “Dead man has no father.”<br>
+      “Dead man is all alone.”<br>
+      “And he will die alone,” the first voice shrieked.<br>
+      “Yes, he will die alone.”
+    </p>
+
+    <p>
+      The voices stopped as abruptly as they started the bloodcurdling song. Looking ahead at Okito’s back, I knew the song had not ended.
+    </p>
+
+    <p>
+      I held my breath. I had been in Solitude long enough to know that the climax would meet us at the door at the end of the corridor, saying a final farewell to the one who was doomed never to return.  
+      ‘Who will walk with the dead man?’  
+      ‘No one. He goes to meet his fate alone.’  
+      ‘Who will die with the dead man?’  
+      ‘No one. He must die alone.’  
+      ‘Goodbye, son of the damned.’  
+      ‘Go well on the journey of no return.’
+    </p>
+
+    <p>
+      The gates ahead opened, the gaping hole leading into the execution grounds. Behind us, the door from the corridor clanged shut, the sound ringing through the night with gut-wrenching finality. The dead man had finally reached home.
+    </p>
+
+<div class="nav">
+      <button class="btn" onclick="goToPage('fiction5')">← Previous</button>
+      <button class="btn" onclick="goToPage('past-questions')">Next →</button>
+    </div>
+  </div> <!-- closes .card -->
+</div>   <!-- closes #fiction6 -->
+
+
+<div id="past-questions" class="page">
+  <div class="card">
+    <button class="home-btn" onclick="goToPage('toc')">🏠</button>
+    <h2>Past Questions & Answers</h2>
+
+    <ol>
+      <li><b>Q:</b> _________ is the Latin expression Jonathan mispronounces as “egg rasher.”<br><b>A:</b> Ex gratia ✅</li>
+      <li><b>Q:</b> The pride/weakness that causes a tragic hero’s downfall is called _________.<br><b>A:</b> Hubris ✅</li>
+      <li><b>Q:</b> A story in which actions are performed by animals is called a _________.<br><b>A:</b> Fable ✅</li>
+      <li><b>Q:</b> The story of someone’s life written by another is a _________.<br><b>A:</b> Biography ✅</li>
+      <li><b>Q:</b> The acts of a play are sub-divided into _________.<br><b>A:</b> Scenes ✅</li>
+      <li><b>Q:</b> A Japanese poem of 17 syllables is a _________.<br><b>A:</b> Haiku ✅</li>
+      <li><b>Q:</b> “Let me not to the marriage of true minds” opens Shakespeare’s _________.<br><b>A:</b> Sonnet 116 ✅</li>
+      <li><b>Q:</b> A figure of speech where the opposite is meant is _________.<br><b>A:</b> Irony ✅</li>
+      <li><b>Q:</b> A disguised statement posed as a question is a _________.<br><b>A:</b> Rhetorical question ✅</li>
+      <li><b>Q:</b> The stage before falling action where tension peaks is _________.<br><b>A:</b> Climax ✅</li>
+      <li><b>Q:</b> The character opposing the protagonist is the _________.<br><b>A:</b> Antagonist ✅</li>
+      <li><b>Q:</b> The villanelle consists of _________ lines.<br><b>A:</b> 19 ✅</li>
+      <li><b>Q:</b> The purgation of pity and fear in tragedy is _________.<br><b>A:</b> Catharsis ✅</li>
+      <li><b>Q:</b> Chief Okoli’s initials V.I.P. stand for _________.<br><b>A:</b> Vincent Ikechukwu Paulinus ✅</li>
+      <li><b>Q:</b> Iweka’s August Inmates is divided into _________ acts.<br><b>A:</b> Three ✅</li>
+      <li><b>Q:</b> All actions in August Inmates take place in a _________.<br><b>A:</b> VIP Detention Room ✅</li>
+      <li><b>Q:</b> A sonnet has _________ syllables.<br><b>A:</b> 140 (14 lines × 10) ✅</li>
+      <li><b>Q:</b> In “The Widow of Ephesus,” the _________ first succumbed to hunger.<br><b>A:</b> Maid ✅</li>
+      <li><b>Q:</b> A story told by a narrator who is also a character uses _________ POV.<br><b>A:</b> First person ✅</li>
+      <li><b>Q:</b> An all-seeing narrator is called _________.<br><b>A:</b> Omniscient ✅</li>
+      <li><b>Q:</b> _________ identified causality as the distinction between plot and story.<br><b>A:</b> E. M. Forster ✅</li>
+      <li><b>Q:</b> The only inmate who escaped in August Inmates was _________.<br><b>A:</b> Obi Akoli ✅</li>
+      <li><b>Q:</b> In Okigbo’s Hurrah for Thunder, the creature that falls is the _________.<br><b>A:</b> Elephant ✅</li>
+      <li><b>Q:</b> In Okri’s An African Elegy, the ocean is full of _________.<br><b>A:</b> Songs ✅</li>
+      <li><b>Q:</b> In Osundare’s I See You, the refrain/title is _________.<br><b>A:</b> I See You ✅</li>
+      <li><b>Q:</b> In Gavin Ewart’s Ending, what ends is _________.<br><b>A:</b> Romance ✅</li>
+      <li><b>Q:</b> In Dunbar’s We Wear the Mask, the _________ “grins and lies.”<br><b>A:</b> Mask ✅</li>
+      <li><b>Q:</b> In Pastan’s To a Daughter Leaving Home, the voice is that of a _________.<br><b>A:</b> Parent (mother) ✅</li>
+      <li><b>Q:</b> In Pastan’s poem, the child was _________ years old when taught to ride.<br><b>A:</b> Eight ✅</li>
+      <li><b>Q:</b> A play with both comedy and tragedy is called _________.<br><b>A:</b> Tragicomedy ✅</li>
+      <li><b>Q:</b> The main character of a story is the _________.<br><b>A:</b> Protagonist ✅</li>
+      <li><b>Q:</b> A writer of plays is a _________.<br><b>A:</b> Playwright / Dramatist ✅</li>
+      <li><b>Q:</b> Speaking to something absent/abstract is _________.<br><b>A:</b> Apostrophe ✅</li>
+      <li><b>Q:</b> Exaggeration for effect is called _________.<br><b>A:</b> Hyperbole ✅</li>
+      <li><b>Q:</b> Comic scenes in a tragedy are called _________.<br><b>A:</b> Comic Relief ✅</li>
+      <li><b>Q:</b> Literature using imagery, economy of words, etc. is _________.<br><b>A:</b> Poetry ✅</li>
+      <li><b>Q:</b> Ascribing human traits to non-humans is _________.<br><b>A:</b> Personification ✅</li>
+      <li><b>Q:</b> A play on words is called a _________.<br><b>A:</b> Pun ✅</li>
+      <li><b>Q:</b> A writer’s choice of words is called _________.<br><b>A:</b> Diction ✅</li>
+      <li><b>Q:</b> A writer’s peculiar manner of expression is _________.<br><b>A:</b> Style ✅</li>
+      <li><b>Q:</b> _________ members of Iwegbu’s family survive the war.<br><b>A:</b> Five (Jonathan, wife, 3 children) ✅</li>
+      <li><b>Q:</b> Jonathan’s wife in Civil Peace is named _________.<br><b>A:</b> Maria ✅</li>
+      <li><b>Q:</b> Jonathan receives _________ pounds as “egg-rasher.”<br><b>A:</b> 20 ✅</li>
+      <li><b>Q:</b> It took Jonathan _________ days to get his egg-rasher.<br><b>A:</b> 5 ✅</li>
+      <li><b>Q:</b> After the war, Jonathan dug up his buried _________.<br><b>A:</b> Bicycle ✅</li>
+      <li><b>Q:</b> The cell in Dead Man Walking is called _________.<br><b>A:</b> Solitude ✅</li>
+      <li><b>Q:</b> The superintendent in Dead Man Walking is _________.<br><b>A:</b> Okito ✅</li>
+      <li><b>Q:</b> The Storm takes place in the month of _________.<br><b>A:</b> March ✅</li>
+      <li><b>Q:</b> The female character in The Storm is _________.<br><b>A:</b> Janet ✅</li>
+      <li><b>Q:</b> The male character in The Storm is _________.<br><b>A:</b> Ben ✅</li>
+      <li><b>Q:</b> Janet believes she saw a corpse in a _________.<br><b>A:</b> Trunk ✅</li>
+      <li><b>Q:</b> abab cdcd efef gg is the _________ sonnet.<br><b>A:</b> English/Shakespearean ✅</li>
+      <li><b>Q:</b> The Italian sonnet is named after _________.<br><b>A:</b> Petrarch ✅</li>
+      <li><b>Q:</b> The pyramidal diagram was developed by _________.<br><b>A:</b> Gustav Freytag ✅</li>
+      <li><b>Q:</b> Aristotle’s term for recognition of error is _________.<br><b>A:</b> Anagnorisis ✅</li>
+      <li><b>Q:</b> A scene recalled from the past is a _________.<br><b>A:</b> Flashback ✅</li>
+      <li><b>Q:</b> A dirge or elegy is a poem about _________.<br><b>A:</b> Death ✅</li>
+      <li><b>Q:</b> An epithalamium celebrates a _________.<br><b>A:</b> Marriage ✅</li>
+      <li><b>Q:</b> A word that reads the same backwards is a _________.<br><b>A:</b> Palindrome ✅</li>
+      <li><b>Q:</b> In Widow of Ephesus, mourning lasted _________ days without food.<br><b>A:</b> Five ✅</li>
+      <li><b>Q:</b> In Widow of Ephesus, the soldier mistook the widow for a _________.<br><b>A:</b> Ghostly apparition ✅</li>
+      <li><b>Q:</b> The only foreigner in August Inmates is _________.<br><b>A:</b> Kane ✅</li>
+      <li><b>Q:</b> The spider in The Gourd Full of Wisdom is _________.<br><b>A:</b> Anansi ✅</li>
+      <li><b>Q:</b> The spider tries to climb a _________ tree.<br><b>A:</b> Palm ✅</li>
+      <li><b>Q:</b> In The Origin of Death, the group sent their memo through the _________.<br><b>A:</b> Dog ✅</li>
+      <li><b>Q:</b> _________ reached God’s kingdom first in The Origin of Death.<br><b>A:</b> Tortoise ✅</li>
+      <li><b>Q:</b> Adding a couplet to a quatrain gives _________ lines.<br><b>A:</b> Six ✅</li>
+      <li><b>Q:</b> Imagined beings in literature are called _________.<br><b>A:</b> Characters ✅</li>
+      <li><b>Q:</b> The ordinary meaning of a word is its _________.<br><b>A:</b> Denotation ✅</li>
+      <li><b>Q:</b> A mild expression for something harsh is a _________.<br><b>A:</b> Euphemism ✅</li>
+    </ol>
+
+    <div class="nav">
+      <button class="btn" onclick="goToPage('fiction6')">← Previous</button>
+      <button class="btn" onclick="goToPage('toc')">Table of Contents</button>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Script -->
+<script>
+  function goToPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
